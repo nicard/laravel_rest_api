@@ -34,6 +34,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::refreshTokensExpireIn(Carbon::now()->addDays(1));
 
+        Gate::define('admin', function($user){
+            return $user->id == 1;
+        });
+
         //
     }
 }

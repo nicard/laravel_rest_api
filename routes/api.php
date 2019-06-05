@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v1')->middleware('auth:api')->group(function(){
+Route::prefix('v1')->middleware(['auth:api', 'tenant', 'bindings'])->group(function(){
 
     Route::get('/users/me', function(){
         return request()->user();

@@ -12,11 +12,12 @@ class ProductController extends Controller
     //
 
     public function index(){
-        $minutes = Carbon::now()->addMinutes(1);
-        $all = Cache::remember('api::products', $minutes, function(){
-            return Product::all();
-        });
-        return $all;
+        dump(\Auth::user());
+        /*$minutes = Carbon::now()->addMinutes(1);
+        $all = Cache::remember('api::products', $minutes, function() use ($company_id) {
+            return Product::where('company_id', $company_id)->get();
+        });*/
+        return Product::all();
     }
 
     public function store(Request $request){
