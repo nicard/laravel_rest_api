@@ -31,3 +31,6 @@ Route::prefix('v1')->middleware(['auth:api', 'tenant', 'bindings'])->group(funct
 Route::get('/cors_example', function(){
     return ['status' => 'ok'];
 });
+
+
+Route::get('rotina/{idRotina}', 'RotinaController@index');

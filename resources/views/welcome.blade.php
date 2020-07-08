@@ -84,6 +84,16 @@
                     Laravel
                 </div>
 
+                <ul>
+                    @foreach($rotinas as $rotina)
+                        @if($rotina->DescricaoPortugues != "")
+                    <li>
+                        {{$rotina->ID}} -> {{$rotina->DescricaoPortugues}}
+                    </li>
+                        @endif
+                    @endforeach
+                </ul>
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
